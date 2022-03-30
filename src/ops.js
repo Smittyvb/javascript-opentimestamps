@@ -274,6 +274,7 @@ class OpHexlify extends OpUnary {
     if (msg.length === 0) {
       console.error('Can\'t hexlify an empty message')
     }
+    return [].concat.apply([], x.map(c => [...c.toString(16)].map(d => d.charCodeAt(0))));
   }
 
   static deserializeFromTag (ctx, tag) {
